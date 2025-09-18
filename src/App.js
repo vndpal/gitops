@@ -1,22 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [timestamp, setTimestamp] = useState("");
+
+  useEffect(() => {
+    setTimestamp(new Date().toLocaleString());
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <h1>🛡️ Self-Healing React App</h1>
+        <p>This app automatically fixes itself using GitOps!</p>
+
+        <div
+          style={{
+            background: "rgba(255,255,255,0.1)",
+            padding: "20px",
+            borderRadius: "10px",
+            margin: "20px 0",
+          }}
         >
-          Learn React
-        </a>
+          <button
+            onClick={() => setCount(count + 1)}
+            style={{
+              padding: "10px 20px",
+              fontSize: "16px",
+              backgroundColor: "#61dafb",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            Clicked {count} times
+          </button>
+        </div>
+
+        <div style={{ fontSize: "14px", opacity: 0.8 }}>
+          <p>🔄 Auto-sync enabled</p>
+          <p>🛠️ Self-healing active</p>
+          <p>📅 Deployed: {timestamp}</p>
+          <p>🏷️ Version: 1.0.0</p>
+        </div>
       </header>
     </div>
   );
