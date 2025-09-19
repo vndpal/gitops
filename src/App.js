@@ -14,6 +14,7 @@ function App() {
       <header className="App-header">
         <h1>🛡️ Self-Healing React App</h1>
         <p>This app automatically fixes itself using GitOps!</p>
+        <p>🏷️ Version: 2.0.0 - Updated via GitOps!</p>
 
         <div
           style={{
